@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for article in object_list %}
+<div class="bg-light p-3 rounded">
+    <h2>{{ article.title }}</h2>
+    <div class="card-body">
+    {% if article.photo %}
+        <img class="rounded d-block img-thumbnail" style="width:60%" src="{{ article.photo.url }}"alt="{{ article.title }}">
+    {% endif %}
+             
+        <p class="mt-3"> {{ article.summary }}...<a href="{% url 'article_detail' article.pk %}">Batafsil o`qish</a></p>
+        <div class="card-footer text-left text-muted">
+            <span class="text-muted">Muallif: {{ article.author | title }} &middot; {{ article.date|date:'d/m/Y G:i' }}</span>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

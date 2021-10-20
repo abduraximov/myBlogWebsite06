@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="bg-light p-5 rounded">
+    <h2>{{ object.title }}</h2>
+    <h6 class="card-subtitle mb-2 text-muted mt-2">Muallif: {{ object.author }} | {{ article.date|date:'d/m/Y G:i' }}</h6>
+    {% if object.photo %}
+    <img class="rounded d-block img-thumbnail" style="width:80%" src="{{ article.photo.url }}"alt="{{ article.title }}">
+    {% endif%}
+         
+    <p class="mt-3">{{ object.body|safe }}</p>
+ {% if user.is_superuser or user.is_staff %}
+    <a href="{% url 'article_edit' article.pk %}" >Tahrirlash</a> |
+    <a href="{% url 'article_delete' article.pk %}" >O`chirish</a>|
+    <a href="{% url 'article_list' %}" >Barcha po`stlar</a>
+{% else %}
+    <a href="{% url 'article_list' %}" >Barcha po`stlar</a>
+{% endif %}
+
+</div>
+
+
+{% endblock content %}

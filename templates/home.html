@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome</h1>
+        <p class="lead">To Abdurakhimov's Blog</p>
+        <hr class="my-4">
+        <p>Bu yerda siz texnika olamidagi yangiliklardan bohabar bo`lib borasiz !!!</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">Postlarni ko'rish</a>
+        </p>   
+    </div>
+{% endblock content %}
+

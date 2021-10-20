@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Maqolani o`chirishni hoxlaysizmi ?</h2>
+<form method="post" >{% csrf_token %}
+    <button class="btn btn-danger mt-3" type="submit">Ha</button>
+    <a class="btn btn-success ml-3 mt-3" href="{% url 'article_list' %}">Cancel</a>
+</form>
+
+{% endblock content %}
